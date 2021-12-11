@@ -1,0 +1,160 @@
+* {
+  font-family: "Parisienne", cursive;
+  justify-content: space-between;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+/*This was copied from styling.css*/
+nav {
+  display: flex;
+  padding: 2% 5%;
+  justify-content: space-between;
+  align-items: center;
+}
+/*Sizes logo*/
+nav image {
+  width: 100px;
+}
+
+/*Styling for navigation bar's list items*/
+.navigation-links {
+  flex: 1;
+  text-align: right;
+}
+
+/*Styling the list items within the nav bar*/
+.navigation-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+.navigation-links ul li a {
+  color: blueviolet;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/*This part put lines underneath the links in the nave. Don't want it like that*/
+.navigation-links ul li::after {
+  content: "";
+  width: 0%; /*Zero makes it invisible. Hover styling allows it appear upon hoovering*/
+  height: 2px;
+  background: blue; /*Color for the line that apppears upon hovering*/
+  display: block;
+  margin: auto;
+  transition: 0.7s; /*FIND OUT WHAT THIS IS*/
+  /* padding-top: 15px; [Wanted this to shift it down. Instead, it made the lines thick]*/
+  /*border-bottom: 10px; border doesn't work either. Tried it both here and at hover*/
+}
+
+.navigation-links ul li:hover::after {
+  width: 100; /*Upon hovering, show the full width NOT WORKING!!!*/
+}
+/*One rem being converted into 10px therefore the need to decrease the size of the html*/
+
+.container {
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center; /*Items w/i the calendar I believe*/
+}
+
+.CAL {
+  width: 60rem;
+  height: 52rem;
+  background-color: #222227;
+  box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+}
+
+.month {
+  height: 12rem;
+  background-color: sienna;
+  display: flex;
+  /*font-size: 2.5rem; /*Learn about display flex*/
+  justify-content: space-between; /*This places an equal amt of space b/n two given items*/
+  align-items: center; /*Find out difference b/n align items and text allign*/
+  padding: 0 2rem;
+  text-align: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+/*Styling individual elements of the calander*/
+/*First uo, the calendar arrows*/
+.month i {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.month h1 {
+  font-size: 3rem;
+  font-weight: 400; /*How bold it is*/
+  text-transform: uppercase; /*Make it upercase*/
+  letter-spacing: 0.2rem;
+  margin-bottom: 1rem;
+}
+
+.month p {
+  font-size: 1.6rem;
+}
+
+.weekendays {
+  width: 100%;
+  height: 5rem;
+  padding: 0 0.4rem;
+  display: flex;
+  align-items: center;
+}
+
+/*He said this was for the weekdays themselves slightly confused*/
+.weekendays div {
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 0.1rem;
+  width: calc(44.2rem / 7); /*Elishaaaaa!!!*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.2rem;
+}
+
+.days div {
+  font-size: 1.4rem;
+  margin: 0.3rem;
+  width: calc(40.2rem / 7);
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+  transition: background-color 0.2s;
+}
+
+/*Hover effect over days not current*/
+.days div:hover:not(.today) {
+  background-color: orange;
+  border: 0.2 rem solid black;
+  cursor: pointer;
+}
+
+.orev-dates,
+.next-month {
+  opacity: 0.5;
+}
+
+.current_day {
+  background-color: plum;
+}

@@ -1,0 +1,238 @@
+/*Setting everything to zero before beginning everything*/
+
+* {
+  margin: 0;
+  padding: 0;
+  /*The CSS equivalent of the Parisienne font style*/
+  font-family: "Parisienne", cursive;
+}
+
+nav {
+  display: flex;
+  padding: 2% 5%;
+  justify-content: space-between;
+  align-items: center;
+}
+/*Sizes logo*/
+nav image {
+  width: 100px;
+}
+
+/*Styling for navigation bar's list items*/
+.navigation-links {
+  flex: 1;
+  text-align: right;
+}
+
+/*Styling the list items within the nav bar*/
+.navigation-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+.navigation-links ul li a {
+  color: blueviolet;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+/*This part put lines underneath the links in the nave. Don't want it like that*/
+.navigation-links ul li::after {
+  content: "";
+  width: 0%; /*Zero makes it invisible. Hover styling allows it appear upon hoovering*/
+  height: 2px;
+  background: blue; /*Color for the line that apppears upon hovering*/
+  display: block;
+  margin: auto;
+  transition: 0.7s; /*FIND OUT WHAT THIS IS*/
+  /* padding-top: 15px; [Wanted this to shift it down. Instead, it made the lines thick]*/
+  /*border-bottom: 10px; border doesn't work either. Tried it both here and at hover*/
+}
+
+.navigation-links ul li:hover::after {
+  width: 100; /*Upon hovering, show the full width NOT WORKING!!!*/
+}
+
+.running-video {
+  height: 100vh; /*vh stands for viewport height*/
+  position: relative;
+}
+
+.slides {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* display: none; This is being commented out becuase Opoacity would give a smother transition*/
+  opacity: 0; /*Starting point for all videos*/
+  transition: opacity 1s case-in-out; /* First numeral is for transition duration ,second for transition timing function*/
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(
+    37,
+    33,
+    33
+  ); /*This is a light blue. Opaque though, to fix it, the next line comes*/
+  mix-blend-mode: overlay; /*understand this code*/
+}
+/*Preventing the smaller screen icon options from showing on the larger(full sized screen)*/
+nav .fa {
+  display: none;
+}
+
+/*Making the website (what has been written so far) look good on a mobile screen*/
+@media (max-width: 700px) {
+  .navigation-links ul li {
+    display: block;
+  }
+  .navigation-links {
+    position: absolute;
+    background: plum; /*Defines the color of the collapsed menu bar*/
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: -200px; /*This hides the pop up menu on the smaller screen until opened by the user*/
+    text-align: left;
+    z-index: 3; /*Original was 2*/
+    transition: 1s;
+  }
+  /*This is to make the close sign show on the smaller screen. Not showing rectamgle turned white though*/
+  nav .fa {
+    display: block;
+    color: white;
+    margin: 11px; /*Original 10*/
+    font-size: 22px;
+    cursor: pointer;
+  }
+  /*Creating space around collapse menu item/ The space is created around the 
+  list. ie space from the margin of the collapse box to the place where the list items begin*/
+
+  .navigation-links ul {
+    padding: 30px;
+  }
+}
+
+/*No longer necessary, but I did it on my own, so I'd keep it awhile
+hr {
+  I DID THIS ON MY OWNNN
+  width: 50%;
+  text-align: left;
+  margin-left: 0;
+
+  min-height: 25px;
+}
+*/
+
+/*Did this too on my own COMPLETELY. MUST FIGURE OUT A WAY TO CENTRE TEXT ELEMENTS*/
+p#COVIDUpdate {
+  border-style: groove;
+  border-style: groove;
+  width: 50%;
+  border-left: none;
+  border-right: none;
+  height: 100px;
+}
+
+/* This defines the first slide to show. The same thing can be done using JS
+.slides:first-child {
+  display: block;
+}
+
+*/
+
+/*All Styling for the streaming section of the page begins here*/
+
+/*First, we create some space between the video part of the page and the streaming part */
+
+.streaming {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+  padding-top: 100px;
+}
+
+/*  Generally turns the virtical order into a horizontal one
+.row{
+  margin-top: 5%;
+  display: flex;   Guess more specifically here
+  justify-content: space-between;
+
+}
+
+.columns{    That is every single occurence of them
+flex-basis: 31%;    Find out what this is
+background:purple;
+border-radius: 10px;   From here downwards, please research BEFORE SUBMISSION
+margin-bottom: 5%;
+padding: 20px 12px;
+box-sizing: border-box;
+
+}
+
+    
+    
+h3{   This is specifically for the things w/i the columns
+  text-align: center;
+  font-weight: 600 ;
+  margin: 10 px 0;
+
+}
+
+
+Styling the cards, if we're being honest, im confused as to why i must double desigm
+
+.row {
+  display: flex; /*This spreads the cards out in a horizontal manner, instead of being in a list view
+  justify-content: center; /*Shifts the entire card's outer box to the middle, alongside everything that's w/i it
+}
+
+.columns {
+  background: white;
+  width: 220px;
+  height: 400px;
+  margin: 10px;
+}
+
+.card-image {
+  background-image: "phantom.jfif";
+}
+
+
+STYLING YET AGAIN
+
+.row {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  height: 400px;
+  width: 400px;
+
+  flex-wrap: wrap; /*FIND OUT WHAT THIS IS
+}
+
+.card-image {
+  background: pink; This for the for the whole card, but only the bottom part reveals this color as an image is placed on top of it
+}
+*/
+
+/*HERE WE GO AGAIN!!!!!!!!!!!!*/
+
+.container {
+  margin-top: 8%;
+  /*This will center all cards virtically*/
+}
+
+.row {
+  height: 300px;
+}
