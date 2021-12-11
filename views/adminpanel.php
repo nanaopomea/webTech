@@ -25,30 +25,7 @@
 
 
     ?>
-    <!--Bootstrap live demo pop-up-->
-    <!-- Button trigger modal -->
 
-
-    <!-- Modal 
-    <div class="modal fade" id="eventsmodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
--->
     <!--BOOTSTRAP-->
     <div class="container-fluid">
         <div class="card shadow mb-4">
@@ -111,7 +88,7 @@
                                         '<td><a href="editevent.php?event=' . $row["id"] . '" class="btn btn-success">EDIT</a></td>' .
                                         //Before element is deleted, confirmation is asked. If confirm returns true, get by ID and delete particular row
                                         '<td><a href="#" class="btn btn-danger" onclick="if(confirm(message)) deleteevent(' . $row["id"] . ');">DELETE</a>' .
-                                        '<form  action="../controllers/deleteevent.php" id="delete-event-' . $row["id"] . '"><input type="hidden" name="eventid" value="' . $row["id"] . '" ></form></td>' .
+                                        '<form  method="POST" action="../controllers/deleteevent.php" id="delete-event-' . $row["id"] . '"><input type="hidden" name="eventid" value="' . $row["id"] . '" ></form></td>' .
                                         "</tr>";
                                 }
                             } else {

@@ -20,47 +20,7 @@ session_start();
 <body>
 
     <div>
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     <div class="full-page">
         <div class="navbar">
@@ -79,49 +39,21 @@ session_start();
                     <button type='button' onclick='register()' class='toggle-btn'>Register</button>
                 </div>
                 <form id='login' class='input-group-login' method="POST" action="controllers/process_login.php">
+                    <span class="text-danger" id="login_info" style="font-size: 18px; text-align: center; width: 100%; color: red;"></span>
 
 
-
-                    <input type='text' class='input-field' placeholder='Email Id' name="mail" required>
-                    <input type='password' class='input-field' placeholder='Enter Password' name="paswrd" required>
+                    <input type='text' class='input-field' placeholder='Email Id' name="mail" id="login_email" required onkeyup="checkLoginEmail();">
+                    <!--Setting password length requirements-->
+                    <input type='password' class='input-field' placeholder='Enter Password' name="paswrd" minlength="8" maxlength="32" required>
                     <input type='checkbox' class='check-box'><span>Remember Password</span>
                     <button type='submit' class='submit-btn' name="login">Log in</button>
                 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 <form id='register' class='input-group-register' method="POST" action="controllers/process_registration.php">
                     <input type='text' class='input-field' placeholder='First Name' name='first' required>
                     <input type='text' class='input-field' placeholder='Last Name' name="last" required>
-                    <input type='email' class='input-field' placeholder='Email Id' name="mailing" required>
-                    <input type='password' class='input-field' placeholder='Enter Password' name="pswrd" required>
-                    <input type='password' class='input-field' placeholder='Confirm Password' name="confirmation" required>
+                    <input type='email' class='input-field' placeholder='Email Id' name="mailing" id="registration_email" required>
+                    <input type='password' class='input-field' placeholder='Enter Password' name="pswrd" minlength="8" maxlength="32" required>
+                    <input type='password' class='input-field' placeholder='Confirm Password' name="confirmation" minlength="8" maxlength="32" required>
                     <input type='checkbox' class='check-box'><span>I agree to the terms and conditions</span>
                     <button type='submit' class='submit-btn' name="submission">Register</button>
 
@@ -155,6 +87,28 @@ session_start();
             }
         }
         document.getElementById('registered').click();
+
+
+
+        //W3resource taught the concept
+        function ValidateEmail(inputText) {
+            var allowedformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,12})+$/;
+            if (inputText.match(allowedformat)) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function checkLoginEmail(){
+            let login_email = document.getElementById("login_email").value;
+            let message = "";
+            if(!ValidateEmail(login_email)){
+                document.getElementById("login_info").innerHTML = "wrong email"
+            } else {
+                document.getElementById("login_info").innerHTML = ""
+            }
+        }
     </script>
 </body>
 

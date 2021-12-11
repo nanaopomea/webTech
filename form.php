@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <!--<p> Please complete the form below and we will be in touch shortly. </p>-->
+    
     <div class="contact-title">
         <h1>
             Come chat with us, don't be a stranger

@@ -44,7 +44,6 @@
         <ul>
           <li><a href="events.php">Events</a></li>
           <li><a href="/views/visitus.php">Visit Us</a></li>
-          <li><a href="Bookings.php">Bookings</a></li>
           <li><a href="venueHire.php">Venue Hire</a></li>
           <!--This would be like one's about-->
           <li><a href="">Our Story</a></li>

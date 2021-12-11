@@ -144,7 +144,7 @@
 
 
 
-    <script src="../public/Calendar.js"></script>
+    <script src="public/js/Calendar.js"></script>
 </body>
 
 </html>

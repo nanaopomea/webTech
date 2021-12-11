@@ -6,15 +6,19 @@ use PHPUnit\Framework\TestCase;
 
 class unit extends TestCase{
 
-    //put function here
-    $variable=yourFunction()
-    $this->assertTrue($variable);
+    
+    /****
+     * @test
+     */
+    public function testUsertLogin(){
+        $response = $this->get("/");
+        $response->assertStatus(200);   
+    }
+    
 }
 
 
-//php code to put in terminal 
 
-// ./vendor/bin/phpunit tests/unit.php
 
 
 
